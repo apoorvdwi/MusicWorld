@@ -1,0 +1,2 @@
+Delete this file once adding content in assets. 
+Created this because empty folders cannot be committed to GitHub.
