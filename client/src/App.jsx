@@ -30,8 +30,9 @@ const App = () => {
     const onLoad = async () => {
       await checkIfWalletIsConnected();
     };
-    window.addEventListener('load', onLoad);
-    return () => window.removeEventListener('load', onLoad);
+    onLoad();
+    // window.addEventListener('load', onLoad);
+    // return () => window.removeEventListener('load', onLoad);
   }, []);
 
   return (

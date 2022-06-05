@@ -5,15 +5,15 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
   width: 100%;
   bottom: 0;
   left: 0;
-  padding-bottom: 45px;
+  padding-bottom: 25px;
 `;
 
 const FooterText = styled.span`
-  color: white;
+  color: var(--foreground);
   font-size: 16px;
   font-weight: bold;
 `;
