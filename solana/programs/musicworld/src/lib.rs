@@ -14,13 +14,14 @@ pub mod musicworld {
   }
 
   // The function now accepts a gif_link param from the user. We also reference the user from the Context
-  pub fn add_song(ctx: Context<AddSong>, song_link: String) -> Result <()> {
+  pub fn add_song(ctx: Context<AddSong>, song_link: String, song_name: String) -> Result <()> {
     let base_account = &mut ctx.accounts.base_account;
     let user = &mut ctx.accounts.user;
 
 	// Build the struct.
     let item = ItemStruct {
       song_link: song_link.to_string(),
+      song_name: song_name.to_string(),
       user_address: *user.to_account_info().key,
     };
 		
@@ -53,6 +54,7 @@ pub struct AddSong<'info> {
 #[derive(Debug, Clone, AnchorSerialize, AnchorDeserialize)]
 pub struct ItemStruct {
     pub song_link: String,
+    pub song_name: String,
     pub user_address: Pubkey,
 }
 

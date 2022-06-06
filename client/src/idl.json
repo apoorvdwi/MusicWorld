@@ -1,91 +1,99 @@
 {
-    "version": "0.1.0",
-    "name": "musicworld",
-    "instructions": [
-      {
-        "name": "startStuffOff",
-        "accounts": [
+  "version": "0.1.0",
+  "name": "musicworld",
+  "instructions": [
+    {
+      "name": "startStuffOff",
+      "accounts": [
+        {
+          "name": "baseAccount",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "addSong",
+      "accounts": [
+        {
+          "name": "baseAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        }
+      ],
+      "args": [
+        {
+          "name": "songLink",
+          "type": "string"
+        },
+        {
+          "name": "songName",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "BaseAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
           {
-            "name": "baseAccount",
-            "isMut": true,
-            "isSigner": true
+            "name": "totalSongs",
+            "type": "u64"
           },
           {
-            "name": "user",
-            "isMut": true,
-            "isSigner": true
-          },
-          {
-            "name": "systemProgram",
-            "isMut": false,
-            "isSigner": false
-          }
-        ],
-        "args": []
-      },
-      {
-        "name": "addSong",
-        "accounts": [
-          {
-            "name": "baseAccount",
-            "isMut": true,
-            "isSigner": false
-          },
-          {
-            "name": "user",
-            "isMut": true,
-            "isSigner": true
-          }
-        ],
-        "args": [
-          {
-            "name": "songLink",
-            "type": "string"
+            "name": "songList",
+            "type": {
+              "vec": {
+                "defined": "ItemStruct"
+              }
+            }
           }
         ]
       }
-    ],
-    "accounts": [
-      {
-        "name": "BaseAccount",
-        "type": {
-          "kind": "struct",
-          "fields": [
-            {
-              "name": "totalSongs",
-              "type": "u64"
-            },
-            {
-              "name": "songList",
-              "type": {
-                "vec": {
-                  "defined": "ItemStruct"
-                }
-              }
-            }
-          ]
-        }
-      }
-    ],
-    "types": [
-      {
-        "name": "ItemStruct",
-        "type": {
-          "kind": "struct",
-          "fields": [
-            {
-              "name": "songLink",
-              "type": "string"
-            },
-            {
-              "name": "userAddress",
-              "type": "publicKey"
-            }
-          ]
-        }
-      }
-    ],
-    "metadata": {
-      "address": "GsCipt9wRQHm8RBo67QkraE8gwEDszxEUFwZogHoQBcB"
     }
+  ],
+  "types": [
+    {
+      "name": "ItemStruct",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "songLink",
+            "type": "string"
+          },
+          {
+            "name": "songName",
+            "type": "string"
+          },
+          {
+            "name": "userAddress",
+            "type": "publicKey"
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "address": "4EZwg9nu8McPtJv6cFMxtjqr6oo8M85RrwzstbQ9pr83"
   }
+}

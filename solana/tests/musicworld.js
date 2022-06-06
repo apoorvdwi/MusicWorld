@@ -23,7 +23,7 @@ const main = async() => {
   console.log('👀 Song Count', account.totalSongs.toString())
 
   // You'll need to now pass a GIF link to the function! You'll also need to pass in the user submitting the GIF!
-  await program.rpc.addSong("insert_a_song_link_here", {
+  await program.rpc.addSong("insert_a_song_link_here", "insert_a_song_name_here", {
     accounts: {
       baseAccount: baseAccount.publicKey,
       user: provider.wallet.publicKey,
