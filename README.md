@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/code%20style-airbnb-blue" />
-  <img src="https://img.shields.io/github/license/apoorvdwi/MusicWorld" />
+  <img src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   <img src="https://img.shields.io/github/stars/apoorvdwi/MusicWorld" />
   <img src="https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2Fapoorvdwi%2FMusicWorld" />
 </p>
