@@ -8,8 +8,8 @@ const Wrapper = styled.div`
   position: fixed;
   bottom: 0;
   left: 0;
+  width: 100%;
   border-radius: 3px;
-  border: 3px solid #ccc;
   margin: 10px;
 `;
 

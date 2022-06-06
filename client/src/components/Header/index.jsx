@@ -2,19 +2,20 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { GiMusicSpell } from 'react-icons/gi';
 import { UserContext } from '../../context/UserContext';
-import NFTForm from '../NFTForm';
 
 const Wrapper = styled.div``;
 
 const Heading = styled.p`
   margin: 0;
   font-size: 50px;
+  margin-bottom: -10px;
   font-weight: bold;
   color: var(--foreground);
 `;
 
 const SubHeading = styled.div`
   font-size: 25px;
+  margin-bottom: 0;
   color: var(--foreground);
 `;
 
@@ -47,7 +48,7 @@ const Header = () => {
       <SubHeading>Explore Music collection in the metaverse ✨</SubHeading>
       {!walletAddress ? (
         <Button onClick={connectWallet}>Connect to Wallet</Button>
-      ) : <Button>Create Song NFT</Button>}
+      ) : null}
     </Wrapper>
   );
 };
