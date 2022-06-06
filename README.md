@@ -1,8 +1,10 @@
 ![MusicWorld](https://socialify.git.ci/apoorvdwi/MusicWorld/image?description=1&descriptionEditable=Music%20World%20is%20web3%20app%20built%20over%20Solana%20where%20anyone%20can%20add%20their%20favourite%20songs%20and%20see%20the%20other%20songs%20that%20are%20added%20by%20different%20people.&font=Inter&language=1&name=1&stargazers=1&theme=Light)
 
 <p align="center">
-<img src="https://img.shields.io/github/license/apoorvdwi/MusicWorld" />
-<img src="https://img.shields.io/badge/code%20style-airbnb-blue" />
+  <img src="https://img.shields.io/badge/code%20style-airbnb-blue" />
+  <img src="https://img.shields.io/github/license/apoorvdwi/MusicWorld" />
+  <img src="https://img.shields.io/github/stars/apoorvdwi/MusicWorld" />
+  <img src="https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2Fapoorvdwi%2FMusicWorld" />
 </p>
 
 ## 💥 Introduction
