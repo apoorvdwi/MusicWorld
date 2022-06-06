@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { GiMusicSpell } from 'react-icons/gi';
 import { UserContext } from '../../context/UserContext';
+import NFTForm from '../NFTForm';
 
 const Wrapper = styled.div``;
 
@@ -46,7 +47,7 @@ const Header = () => {
       <SubHeading>Explore Music collection in the metaverse ✨</SubHeading>
       {!walletAddress ? (
         <Button onClick={connectWallet}>Connect to Wallet</Button>
-      ) : null}
+      ) : <Button>Create Song NFT</Button>}
     </Wrapper>
   );
 };
