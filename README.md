@@ -56,4 +56,4 @@ npm run lint
 
 ## 📜 LICENSE
 
-[ISC](https://github.com/apoorvdwi/MusicWorld/blob/main/LICENSE)
+[MIT License](https://github.com/apoorvdwi/MusicWorld/blob/main/LICENSE)
