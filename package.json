@@ -1,0 +1,23 @@
+{
+  "name": "musicworld",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:install": "npm i && cd client && npm i",
+    "lint": "cd client && npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apoorvdwi/MusicWorld.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apoorvdwi/MusicWorld/issues"
+  },
+  "devDependencies": {
+    "husky": "^8.0.1"
+  }
+}

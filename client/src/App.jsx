@@ -3,9 +3,9 @@ import Container from './components/Container';
 import { UserContext } from './context/UserContext';
 import './App.scss';
 
-import { Connection, PublicKey, clusterApiUrl} from '@solana/web3.js';
+import { Connection, PublicKey, clusterApiUrl } from '@solana/web3.js';
 import {
-  Program, Provider, web3
+  Program, Provider, web3,
 } from '@project-serum/anchor';
 
 import idl from './idl.json';
@@ -14,7 +14,7 @@ import idl from './idl.json';
 const { SystemProgram, Keypair } = web3;
 
 // Create a keypair for the account that will hold the GIF data.
-let baseAccount = Keypair.generate();
+const baseAccount = Keypair.generate();
 
 // Get our program's id from the IDL file.
 const programID = new PublicKey(idl.metadata.address);
@@ -24,8 +24,8 @@ const network = clusterApiUrl('devnet');
 
 // Controls how we want to acknowledge when a transaction is "done".
 const opts = {
-  preflightCommitment: "processed"
-}
+  preflightCommitment: 'processed',
+};
 
 const App = () => {
   const userContext = useContext(UserContext);
@@ -56,7 +56,7 @@ const App = () => {
       connection, window.solana, opts.preflightCommitment,
     );
     return provider;
-  }
+  };
 
   useEffect(() => {
     const onLoad = async () => {
