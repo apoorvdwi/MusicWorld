@@ -91,16 +91,8 @@ const NFTForm = ({ closeModal }) => {
     >
       <SubHeading>Song NFT Details</SubHeading>
       <Input type="text" placeholder="Song Name" />
-      <InputFile htmlFor="formId">
-        Choose Sound Track
-        <Input type="file" placeholder="Song Cover Image" />
-      </InputFile>
+      <Input type="text" placeholder="Song Link" />
       <div style={{ height: '1px' }} />
-      <InputFile htmlFor="formId">
-        Choose Cover Image For the Song
-        <Input type="file" placeholder="Song Cover Image" />
-      </InputFile>
-      <Input type="text" placeholder="NFT Token" />
       <Button>Create NFT</Button>
     </StyledModal>
   );
