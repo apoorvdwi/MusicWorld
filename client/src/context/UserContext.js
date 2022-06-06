@@ -1,5 +1,6 @@
 import React, { useState, useEffect, createContext } from 'react';
 import idl from '../idl.json';
+import kp from '../keypair.json';
 import { Connection, PublicKey, clusterApiUrl } from '@solana/web3.js';
 import {
   Program, Provider, web3,
@@ -9,7 +10,9 @@ import {
 const { SystemProgram, Keypair } = web3;
 
 // Create a keypair for the account that will hold the GIF data.
-const baseAccount = Keypair.generate();
+const arr = Object.values(kp._keypair.secretKey);
+const secret = new Uint8Array(arr);
+const baseAccount = web3.Keypair.fromSecretKey(secret);
 
 // Get our program's id from the IDL file.
 const programID = new PublicKey(idl.metadata.address);
@@ -40,6 +43,29 @@ const UserProvider = ({ children }) => {
     }
   };
 
+  const sendSong = async (songName, songLink) => {
+    if (songName.length === 0 && songLink.length === 0) {
+      console.log('No song details given!');
+      return;
+    }
+    try {
+      const provider = getProvider();
+      const program = new Program(idl, programID, provider);
+
+      await program.rpc.addSong(songLink, songName, {
+        accounts: {
+          baseAccount: baseAccount.publicKey,
+          user: provider.wallet.publicKey,
+        },
+      });
+      console.log('Song successfully sent to program', songLink, songName);
+
+      await getSongsList();
+    } catch (error) {
+      console.log('Error sending Song:', error);
+    }
+  };
+
   const getSongsList = async () => {
     try {
       const provider = getProvider();
@@ -47,9 +73,10 @@ const UserProvider = ({ children }) => {
       const account = await program.account.baseAccount.fetch(baseAccount.publicKey);
 
       console.log('Got the account', account);
-      setSongsList(account.songsList);
+      setSongsList(account.songList);
     } catch (error) {
       console.log('Error in getSongsfList: ', error);
+      createSongAccount();
       setSongsList(null);
     }
   };
@@ -98,6 +125,8 @@ const UserProvider = ({ children }) => {
     loading,
     setLoading,
     connectWallet,
+    sendSong,
+    songsList,
   };
 
   return (

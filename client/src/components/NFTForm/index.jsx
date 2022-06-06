@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 import { Modal } from 'antd';
+import { UserContext } from '../../context/UserContext';
 
 const Input = styled.input`
   color: white;
@@ -35,17 +36,6 @@ const Button = styled.button`
   width: 50%;
 `;
 
-const InputFile = styled.div`
-  color: white;
-  font-size: 14px;
-  padding: 10px;
-  margin: 10px 0;
-  background: transparent;
-  border-radius: 5px;
-  border: 3px solid #ccc;
-  transition: 0.5s;
-`;
-
 const StyledModal = styled(Modal)`
   border-radius: 10px;
   .ant-modal-header {
@@ -74,6 +64,12 @@ const SubHeading = styled.div`
 `;
 
 const NFTForm = ({ closeModal }) => {
+  const userContext = useContext(UserContext);
+  const [songDetails, setSongDetails] = useState({
+    name: '',
+    link: '',
+  });
+  const { sendSong } = userContext;
   return (
     <StyledModal
       centered
@@ -89,11 +85,41 @@ const NFTForm = ({ closeModal }) => {
         closeModal();
       }}
     >
-      <SubHeading>Song NFT Details</SubHeading>
-      <Input type="text" placeholder="Song Name" />
-      <Input type="text" placeholder="Song Link" />
+      <SubHeading>Add Song Details</SubHeading>
+      <Input
+        onChange={(e) => {
+          setSongDetails((prevValue) => ({
+            ...prevValue,
+            name: e.target.value,
+          }));
+        }}
+        type="text"
+        placeholder="Song Name"
+      />
+      <Input
+        onChange={(e) => {
+          setSongDetails((prevValue) => ({
+            ...prevValue,
+            link: e.target.value,
+          }));
+        }}
+        type="text"
+        placeholder="Song Link"
+      />
       <div style={{ height: '1px' }} />
-      <Button>Create NFT</Button>
+      <Button
+        onClick={() => {
+          sendSong(songDetails.name, songDetails.link);
+          closeModal();
+          setSongDetails((prevValue) => ({
+            ...prevValue,
+            name: '',
+            link: '',
+          }));
+        }}
+      >
+        Add Song
+      </Button>
     </StyledModal>
   );
 };

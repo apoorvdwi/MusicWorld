@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import MusicBox from '../MusicBox';
+import { UserContext } from '../../context/UserContext';
 
 const Wrapper = styled.div`
   height: 68vh;
@@ -41,37 +43,21 @@ const InnerWrapper = styled.div`
   }
 `;
 
-const Box = styled.div`
-    width: 100%;
-    border-radius: 10px;
-    height: 100%;
-    background-color: var(--background);
-`;
-
 const MusicContainer = () => {
+  const userContext = useContext(UserContext);
+  const { songsList } = userContext;
   return (
     <Wrapper>
       <InnerWrapper>
-        <Box />
-        <Box />
-        <Box />
-        <Box />
-        <Box />
-        <Box />
-        <Box />
-        <Box />
-        <Box />
-        <Box />
-        <Box />
-        <Box />
-        <Box />
-        <Box />
-        <Box />
-        <Box />
-        <Box />
-        <Box />
-        <Box />
-        <Box />
+        {songsList.map((song, index) => {
+          return (
+            <MusicBox
+              id={index}
+              songName={song.songName}
+              songLink={song.songLink}
+            />
+          );
+        })}
       </InnerWrapper>
     </Wrapper>
   );

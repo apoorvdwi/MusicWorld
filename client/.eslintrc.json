@@ -18,6 +18,7 @@
   },
   "plugins": ["prettier", "react", "@typescript-eslint"],
   "rules": {
+    "no-underscore-dangle":"off",
     "no-unused-vars": "off",
     "new-cap":"off",
     "no-param-reassign":"off",

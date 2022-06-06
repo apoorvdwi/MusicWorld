@@ -59,7 +59,7 @@ const Container = () => {
             }}
             style={{ position: 'absolute', top: '25px', right: '30px' }}
           >
-            Create Song NFT
+            Add Song
           </Button>
         ) : null}
         {walletAddress ? <MusicContainer /> : null}
