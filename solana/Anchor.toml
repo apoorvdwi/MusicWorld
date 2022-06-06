@@ -1,0 +1,14 @@
+[features]
+seeds = false
+[programs.devnet]
+musicworld = "4EZwg9nu8McPtJv6cFMxtjqr6oo8M85RrwzstbQ9pr83"
+
+[registry]
+url = "https://anchor.projectserum.com"
+
+[provider]
+cluster = "devnet"
+wallet = "/Users/asjadahmedkhan/.config/solana/id.json"
+
+[scripts]
+test = "node tests/musicworld.js"
