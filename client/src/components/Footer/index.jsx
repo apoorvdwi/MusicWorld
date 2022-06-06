@@ -6,16 +6,19 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   position: fixed;
-  width: 100%;
   bottom: 0;
   left: 0;
-  padding-bottom: 25px;
+  border-radius: 3px;
+  border: 3px solid #ccc;
+  margin: 10px;
 `;
 
 const FooterText = styled.span`
   color: var(--foreground);
   font-size: 16px;
   font-weight: bold;
+  color:white;
+  padding: 9px;
 `;
 
 const Footer = () => {
