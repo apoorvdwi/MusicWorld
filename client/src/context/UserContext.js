@@ -73,7 +73,9 @@ const UserProvider = ({ children }) => {
       const account = await program.account.baseAccount.fetch(baseAccount.publicKey);
 
       console.log('Got the account', account);
-      setSongsList(account.songList);
+      setSongsList(
+        account.songList.filter((song) => song.songName !== 'Testing Name'),
+      );
     } catch (error) {
       console.log('Error in getSongsfList: ', error);
       createSongAccount();

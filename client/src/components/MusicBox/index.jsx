@@ -46,7 +46,7 @@ const MusicBox = ({ songName, songLink }) => {
           backgroundColor: 'var(--foreground)',
         }}
       >
-        {songName.slice(0, 1)}
+        {songName.slice(0, 1).toUpperCase()}
       </StyledAvatar>
       <SubHeading>{songName}</SubHeading>
     </Wrapper>
